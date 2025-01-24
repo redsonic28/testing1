@@ -33,6 +33,9 @@ app.post('/submit', async (req, res) => {
 });
 
 // Iniciar el servidor
-app.listen(3000, () => {
-    console.log("Servidor corriendo en http://localhost:3000");
+const port = process.env.PORT || 3000; // Usar el puerto asignado por Render o 3000 como defecto
+
+app.listen(port, () => {
+    console.log(`Servidor corriendo en el puerto ${port}`);
 });
+

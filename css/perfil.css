@@ -1,0 +1,285 @@
+/* ==============CUERPO========================*/
+/* Estilos visuales generales */
+body {
+    margin: 0;
+    padding: 0;
+ 
+    position: relative;
+    z-index: 1;
+  }
+  /* ==============Boton UI-SWTCH========================*/
+  .ui-switch {
+    --switch-bg: rgb(135, 150, 165); /* Color del fondo del switch */
+    --switch-width: 48px;
+    --switch-height: 20px;
+    --circle-diameter: 24px; /* Tamaño del círculo */
+    --circle-bg: rgb(0, 56, 146); /* Color del círculo */
+    --circle-inset: calc((var(--circle-diameter) - var(--switch-height)) / 2);
+  
+    position: absolute;
+    top: 2%; /* Ajusta la posición */
+    right: 5%; /* Usa "right" en lugar de "left" para que esté alineado al borde derecho */
+    width: var(--switch-width);
+    height: var(--switch-height);
+    background: var(--switch-bg);
+    border-radius: 50px; /* Hace los bordes redondeados */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    pointer-events: auto;
+  }
+  
+  .ui-switch input {
+    display: none; /* Oculta el checkbox */
+  }
+  
+  .ui-switch .slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: inherit;
+    background: inherit;
+    transition: background-color 0.3s ease;
+  }
+  
+  .ui-switch .circle {
+    width: var(--circle-diameter);
+    height: var(--circle-diameter);
+    background: var(--circle-bg);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: var(--circle-inset);
+    transform: translateY(-50%);
+    transition: left 0.3s ease;
+  }
+  
+  /* modo activo */
+  .ui-switch input:checked + .slider .circle {
+    left: calc(100% - var(--circle-diameter) - var(--circle-inset));
+  }
+  
+  .ui-switch input:checked + .slider {
+    background: #2196F3; /* Cambia el fondo del slider al activarlo */
+  }
+  /* ==============Boton UI-SWTCH========================*/
+  /* ==============FONDO DE PANTALLA========================*/
+  /* Capa de carga que cubrirá todo el video */
+  #loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 9999;
+    display: block;
+    animation: fadeOut 5s ease-out forwards;
+    pointer-events: none;
+  }
+  /*  fadeout */
+  @keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+  }
+  
+  /* Fondo de video */
+  #video_background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+  }
+  
+  #video_background iframe {
+    position: absolute;
+    top: -10%;
+    left: -40%;
+    width: 160%;
+    height:200%;
+    object-fit: contain;
+    pointer-events: none; /* Evita la interacción con el video */
+  }
+  /* fondo de imagen*/
+  .background-image {
+    background-image: url("https://i.pinimg.com/1200x/82/25/c1/8225c1486c9f0c42809888ab056898c5.jpg");
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4%; /* Ajusta la altura según lo necesites */
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+   } /* Asegura que el fondo esté detrás de los botones */
+
+    .background-image1 {
+        background-image: url("https://i.pinimg.com/originals/3a/07/59/3a0759c5e4835364684cfd133dd2c01b.gif");
+        position: absolute;
+        position: absolute;
+        top: -10%;
+        left: -40%;
+        width: 160%;
+        height:200%;
+        object-fit: contain;
+        pointer-events: none; 
+        background-size: cover; 
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: -1; /* Asegura que el fondo esté detrás de los botones */
+  }
+  /* ==============FONDO DE PANTALLA========================*/
+  /* ==============BARRA DE NAVEGACION========================*/
+  /*barra de navegeaciones*/
+  .nav-tabs {
+    position: relative;
+    z-index: 10; /* Asegura que los botones estén encima del fondo */
+    background: transparent; /* Elimina cualquier fondo predeterminado */
+    padding-top: 1%; /* Ajusta el espacio superior si es necesario */
+    border-color: #e11d1d;
+  }
+  
+  .nav-tabs .nav-link {
+    color: rgb(16, 15, 12); 
+    background-color: rgba(87, 35, 5, 0.6); 
+    border-color: #d5281b;
+  }
+  
+  /* Ajustes opcionales */
+  .nav-tabs button {
+    font-size: 1.2em; /* Tamaño de los botones */
+  }
+  /* ==============BARRA DE NAVEGACION========================*/
+  /* ==============CONTENIDO PRINCIPAL========================*/
+  /* Contenido principal */
+  .content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Cabecera de presentación */
+  .caption-header {
+    margin-top: 20vh;
+    text-align: center;
+    color: white;
+  }
+a {
+    color: #d2d9e0;
+    text-decoration: none;
+    background-color: transparent;
+}
+  
+  .container1{
+    position: relative;
+    align-items: center;
+    background-color: rgb(215, 203, 94);  
+    border: 2px solid #e11d1d;  
+    padding: 50px;           
+    margin: 20px;           
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.container2{
+    background-color: rgb(215, 203, 94);  /* Fondo blanco */
+    border: 2px solid #e11d1d;   /* Borde negro */
+    padding: 20px;            /* Espacio interno */
+    margin: 20px;             /* Espacio externo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+  .img-place > img {
+    width: 100%;
+    height: auto;
+}
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+user agent stylesheet
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+/* =================================================================*/
+.form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  max-width: 90%; /* Asegura que no se desborde en pantallas pequeñas */
+  width: 100%; /* Ancho completo dentro del contenedor padre */
+  background-color: rgb(231, 197, 27);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 30px 30px -30px rgba(27, 26, 26, 0.315);
+  margin: 20px auto; /* Centra el formulario en el contenedor */
+}
+
+.form .title {
+  color: rgb(225, 65, 65);
+  font-size: 1.5rem; /* Usa unidades relativas */
+  font-weight: 600;
+  text-align: center;
+}
+
+.form input, 
+.form textarea {
+  width: 100%; /* Se adapta al ancho del formulario */
+  max-width: 500px; /* Limita el ancho máximo */
+  outline: 0;
+  border: 1px solid rgb(219, 213, 213);
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 1rem; /* Unidades relativas para mayor consistencia */
+}
+
+.form textarea {
+  height: 120px; /* Ajusta la altura del textarea */
+  resize: none;
+}
+
+.form button {
+  padding: 10px 20px;
+  border: 0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: rgb(254, 14, 14);
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form button:hover {
+  background-color: rgb(200, 0, 0); /* Efecto hover */
+}
+
+    
+a {
+  color: #c6a98a;
+  text-decoration: none;
+  background-color: transparent;
+  border-color: #e11d1d;
+  border-radius: 8px;
+}

@@ -1,0 +1,183 @@
+/* ==============CUERPO========================*/
+/* Estilos visuales generales */
+body {
+  margin: 0;
+  padding: 0;
+ overflow: auto;
+  position: relative;
+  z-index: 1;
+}
+/* ==============Boton UI-SWTCH========================*/
+.ui-switch {
+  --switch-bg: rgb(135, 150, 165); /* Color del fondo del switch */
+  --switch-width: 48px;
+  --switch-height: 20px;
+  --circle-diameter: 24px; /* Tamaño del círculo */
+  --circle-bg: rgb(0, 56, 146); /* Color del círculo */
+  --circle-inset: calc((var(--circle-diameter) - var(--switch-height)) / 2);
+
+  position: absolute;
+  top: 2%; /* Ajusta la posición */
+  right: 5%; /* Usa "right" en lugar de "left" para que esté alineado al borde derecho */
+  width: var(--switch-width);
+  height: var(--switch-height);
+  background: var(--switch-bg);
+  border-radius: 50px; /* Hace los bordes redondeados */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  pointer-events: auto;
+}
+
+.ui-switch input {
+  display: none; /* Oculta el checkbox */
+}
+
+.ui-switch .slider {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: inherit;
+  background: inherit;
+  transition: background-color 0.3s ease;
+}
+
+.ui-switch .circle {
+  width: var(--circle-diameter);
+  height: var(--circle-diameter);
+  background: var(--circle-bg);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: var(--circle-inset);
+  transform: translateY(-50%);
+  transition: left 0.3s ease;
+}
+
+/* modo activo */
+.ui-switch input:checked + .slider .circle {
+  left: calc(100% - var(--circle-diameter) - var(--circle-inset));
+}
+
+.ui-switch input:checked + .slider {
+  background: #2196F3; /* Cambia el fondo del slider al activarlo */
+}
+/* ==============Boton UI-SWTCH========================*/
+/* ==============FONDO DE PANTALLA========================*/
+/* Capa de carga que cubrirá todo el video */
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 9999;
+  display: block;
+  animation: fadeOut 5s ease-out forwards;
+  pointer-events: none;
+}
+/*  fadeout */
+@keyframes fadeOut {
+  0% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+  }
+}
+
+/* Fondo de video */
+#video_background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+#video_background iframe {
+  position: absolute;
+  top: 60%;
+  left: 60%;
+  width: 360%; /* Asegura que el video ocupe todo el ancho */
+  height: 300%; /* Asegura que el video ocupe toda la altura */
+  object-fit: cover; /* Escala el video para cubrir toda el área visible */
+  pointer-events: none; /* Evita la interacción con el video */
+  transform: translate(-50%, -50%)
+}
+
+
+/* fondo de imagen*/
+.background-image {
+  background-image: url("https://i.pinimg.com/1200x/82/25/c1/8225c1486c9f0c42809888ab056898c5.jpg");
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 16%; /* Ajusta la altura según lo necesites */
+  background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1; /* Asegura que el fondo esté detrás de los botones */
+}
+/* ==============FONDO DE PANTALLA========================*/
+/* ==============BARRA DE NAVEGACION========================*/
+/*barra de navegeaciones*/
+.nav-tabs {
+  position: relative;
+  z-index: 10; /* Asegura que los botones estén encima del fondo */
+  background: transparent; /* Elimina cualquier fondo predeterminado */
+  padding-top: 1%; /* Ajusta el espacio superior si es necesario */
+  z-index: 10; /* Asegura que los botones estén encima del fondo */
+  border-color:#0c1320;
+}
+
+.nav-tabs .nav-link {
+  color: rgb(255, 255, 255); /* Asegura que los botones sean legibles */
+  background:  rgba(18, 164, 189, 0.7)/* Elimina cualquier fondo predeterminado */;
+  border-color: #0c1320;
+}
+
+/* Ajustes opcionales */
+.nav-tabs button {
+  font-size: 1.2em; /* Tamaño de los botones */
+}
+/* ==============BARRA DE NAVEGACION========================*/
+/* ==============CONTENIDO PRINCIPAL========================*/
+/* Contenido principal */
+.content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+/* Cabecera de presentación */
+.caption-header {
+  margin-top: 20vh;
+  text-align: center;
+  color: white;
+}
+
+.badge {
+  background-color: #2e465c;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 1rem;
+  color: white;
+}
+
+a {
+  color: #0b1f3a;
+  text-decoration: none;
+  background-color: transparent;
+  border-color: #a3e11d;
+  border-radius: 8px;
+}

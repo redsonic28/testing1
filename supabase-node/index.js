@@ -25,7 +25,7 @@ app.post('/submit', async (req, res) => {
             return res.status(500).send("Error al insertar el mensaje.");
         }
 
-        res.send("¡Mensaje enviado con éxito!");
+        res.send("¡Mensaje enviado con éxito! por favor presiona la flecha de retroceder para volver a la pagina");
     } catch (err) {
         console.error("Error inesperado:", err);
         res.status(500).send("Error inesperado.");
